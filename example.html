@@ -1,0 +1,94 @@
+<html>
+<head>
+
+<link href="css/tinycard.css" rel="stylesheet" type="text/css" />
+
+<style type='text/css'>
+#cards {
+  float: left;
+  width: 137px;
+  border-top: 1px solid black;
+}
+</style>
+
+</head>
+<body>
+
+<form id='create'>
+<div>
+  <label for='name'>Card Name</label>
+  <input type='text' id='name' value='Quotidian Ejector' />
+</div>
+<div>
+  <label for='threshold'>Threshold</label>
+  <select id='threshold'>
+    <option>1</option>
+    <option selected='true'>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+  </select>
+</div>
+<div>
+<label for='trade'>Trade</label>
+  <select id='trade'>
+    <option selected='true'>Arcanist</option>
+    <option>Banker</option>
+    <option>Gearsmith</option>
+    <option>Rogue</option>
+    <option>Warlord</option>
+  </select>
+</div>
+<div>
+  <label for='cost'>Numeric Cost</label>
+  <input type='text' id='cost' size='2' maxlength='2' value='3' />
+</div>
+<input type='submit' value='Create Card' />
+</form>
+
+<div id='cards'>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<script type='text/javascript' src='js/tinycard.js'></script>
+<script type='text/javascript'>
+
+function addSingleCard() {
+  var card = tinycard({
+    "strength":1,
+    "trade":"arcanist",
+    "speed":3,
+    "threshold":2,
+    "rarity":"common",
+    "name":"Quotidian Ejector",
+    "numeric-cost":3,
+    "set-number":25,
+    "set-name":"first-edition",
+    "type":"character",
+    "life":1
+  });
+
+  $("#cards").append(card);
+}
+
+$(function() {
+  addSingleCard();
+
+  $("#create").submit(function() {
+    var card = tinycard({
+      "trade": $("#trade").val(),
+      "name": $("#name").val(),
+      "numeric-cost": $("#cost").val(),
+      "threshold": $("#threshold").val()
+    });
+
+    $("#cards").append(card);
+
+    return false;
+  });
+});
+
+</script>
+</body>
+</html>

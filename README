@@ -1,0 +1,22 @@
+TINYCARD
+
+tinycard is a library to help you write web applications for The Spoils TCG.
+If you need to put a large number (10-100) of cards on the screen for the user
+to see, you need to present them in a way that's both very area-efficient and
+very readable. tinycard provides that for you.
+
+HOW TO USE IT
+
+Make sure your page includes the tinycard CSS file, and that the imgs
+directory is accessible for a user browsing your page. Include the
+tinycard JavaScript file, and invoke it through the tinycard function.
+
+EXAMPLE
+
+example.html provides an example page demonstrating the use of tinycard.
+example.jpg shows what it should look like.
+
+NOTES
+
+Although the example page uses jQuery, the tinycard library itself is written
+in vanilla JavaScript and will therefore work with any JavaScript library.
